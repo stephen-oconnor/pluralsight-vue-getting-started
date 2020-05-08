@@ -11,7 +11,6 @@ This repository contains several projects. Each project represents a step in the
 - `02-getting-started/end/vue-heroes` - This is the starting point for the app
 - `xx-final/vue-heroes` - This is the ending point for the app
 
-
 ## Quick Start
 
 1. Clone this repository
