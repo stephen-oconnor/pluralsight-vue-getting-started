@@ -9,17 +9,12 @@
               <div class="card">
                 <div class="card-content">
                   <div class="content">
-                    <div :key="hero.name" class="name">
-                      {{ hero.firstName }} {{ hero.lastName }}
-                    </div>
+                    <div :key="hero.name" class="name">{{ hero.firstName }} {{ hero.lastName }}</div>
                     <div class="description">{{ hero.description }}</div>
                   </div>
                 </div>
                 <footer class="card-footer">
-                  <button
-                    class="link card-footer-item"
-                    @click="selectHero(hero)"
-                  >
+                  <button class="link card-footer-item" @click="selectHero(hero)">
                     <i class="fas fa-check"></i>
                     <span>Select</span>
                   </button>
@@ -58,14 +53,14 @@ export default {
     HeroDetail,
   },
   mixins: [lifecycleHooks, heroWatchers],
-  created() {
-    this.loadHeroes();
+  async created() {
+    await this.loadHeroes();
   },
   methods: {
-    loadHeroes() {
+    async loadHeroes() {
       this.heroes = [];
       this.message = 'getting the heroes, please be patient';
-      this.heroes = data.ourHeroes;
+      this.heroes = await data.getHeros();
       this.message = '';
     },
     cancelHero() {
