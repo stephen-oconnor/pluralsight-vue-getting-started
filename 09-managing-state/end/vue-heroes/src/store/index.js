@@ -21,6 +21,7 @@ const mutations = {
   },
   [UPDATE_HERO](state, hero) {
     const index = state.heroes.findIndex(h => h.id === hero.id);
+
     state.heroes.splice(index, 1, hero);
     state.heroes = [...state.heroes];
   },
